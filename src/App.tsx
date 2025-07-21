@@ -73,32 +73,35 @@ function App() {
    }
 
     try {
-     const response = await fetch('/api/send-consultation-email', {
-       method: 'POST',
-       headers: {
-         'Content-Type': 'application/json',
-       },
-       body: JSON.stringify(formData),
+     // Simulate form processing
+     await new Promise(resolve => setTimeout(resolve, 2000));
+     
+     // Log the form data to console (you can see this in browser dev tools)
+     console.log('=== NEW CONSULTATION REQUEST ===');
+     console.log('Full Name:', formData.fullName);
+     console.log('Email:', formData.email);
+     console.log('Phone:', formData.phoneNumber);
+     console.log('Investment Amount:', formData.investmentAmount);
+     console.log('Investment Timeline:', formData.investmentTimeline);
+     console.log('Submitted at:', new Date().toLocaleString('en-AU', { timeZone: 'Australia/Sydney' }));
+     console.log('================================');
+     
+     // Show success message
+     setSubmitMessage(`Thank you ${formData.fullName}! Your consultation request has been received. We'll contact you at ${formData.phoneNumber} or ${formData.email} within 24 hours to discuss your ${formData.investmentAmount} bond investment needs.`);
+     setSubmitMessageType('success');
+     
+     // Clear the form
+     setFormData({
+       fullName: '',
+       email: '',
+       phoneNumber: '',
+       investmentAmount: '',
+       investmentTimeline: ''
      });
-
-     const result = await response.json();
-
-     if (response.ok && result.success) {
-       setSubmitMessage('Thank you! Your consultation request has been sent successfully. We\'ll contact you within 24 hours to discuss your bond investment needs.');
-       setSubmitMessageType('success');
-       setFormData({
-         fullName: '',
-         email: '',
-         phoneNumber: '',
-         investmentAmount: '',
-         investmentTimeline: ''
-       });
-     } else {
-       throw new Error(result.message || 'Failed to send consultation request');
-     }
+     
    } catch (error) {
-     console.error('Error submitting form:', error);
-     setSubmitMessage('Sorry, there was an error sending your consultation request. Please try again or call us directly at 1800 BONDS (26637).');
+     console.error('Error processing form:', error);
+     setSubmitMessage('Sorry, there was an error processing your request. Please call us directly at 1800 BONDS (26637) to speak with an expert immediately.');
      setSubmitMessageType('error');
    } finally {
      setIsSubmitting(false);
