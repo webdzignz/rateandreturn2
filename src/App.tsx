@@ -38,6 +38,36 @@
 -    // Handle form submission here
 +    setIsSubmitting(true);
 +    setSubmitMessage('');
+    // Client-side validation
+    if (!formData.fullName.trim()) {
+      setSubmitMessage('Please enter your full name.');
+      setIsSubmitting(false);
+      return;
+    }
+    
+    if (!formData.email.trim() || !/\S+@\S+\.\S+/.test(formData.email)) {
+      setSubmitMessage('Please enter a valid email address.');
+      setIsSubmitting(false);
+      return;
+    }
+    
+    if (!formData.phoneNumber.trim()) {
+      setSubmitMessage('Please enter your phone number.');
+      setIsSubmitting(false);
+      return;
+    }
+    
+    if (!formData.investmentAmount) {
+      setSubmitMessage('Please select your investment amount.');
+      setIsSubmitting(false);
+      return;
+    }
+    
+    if (!formData.investmentTimeline) {
+      setSubmitMessage('Please select your investment timeline.');
+      setIsSubmitting(false);
+      return;
+    }
 +
 +    try {
       const response = await fetch('/.netlify/functions/send-email', {
@@ -66,32 +96,6 @@
     } finally {
       setIsSubmitting(false);
     }
-+      const response = await fetch('/api/send-email', {
-+        method: 'POST',
-+        headers: {
-+          'Content-Type': 'application/json',
-+        },
-+        body: JSON.stringify(formData),
-+      });
-+
-+      if (response.ok) {
-+        setSubmitMessage('Thank you! Your consultation request has been sent. We\'ll contact you within 24 hours.');
-+        setFormData({
-+          fullName: '',
-+          email: '',
-+          phoneNumber: '',
-+          investmentAmount: '',
-+          investmentTimeline: ''
-+        });
-+      } else {
-+        throw new Error('Failed to send email');
-+      }
-+    } catch (error) {
-+      console.error('Error submitting form:', error);
-+      setSubmitMessage('Sorry, there was an error sending your request. Please try again or call us directly at 1800 BONDS (26637).');
-+    } finally {
-+      setIsSubmitting(false);
-+    }
    };
 @@ .. @@
              <div className="mt-8 text-center animate-in fade-in-50 slide-in-from-bottom-4 duration-800 delay-1000">
