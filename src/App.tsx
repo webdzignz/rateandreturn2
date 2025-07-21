@@ -1,20 +1,15 @@
 @@ .. @@
-             {/* Desktop CTA Button */}
-             <div className="hidden md:block">
-              <button 
-                onClick={() => scrollToSection('contact')} 
-                className="bg-gradient-to-r from-red-600 to-red-700 hover:from-red-700 hover:to-red-800 text-white px-6 py-2 rounded-lg font-semibold transition-all duration-300 hover:shadow-xl hover:scale-105 transform">
-                Book Consultation
-              </button>
              </div>
+           </div>
+
+           {/* Mobile menu button */}
+           <div className="md:hidden">
 @@ .. @@
-                 <div className="pt-2">
-                  <button 
-                    onClick={() => scrollToSection('contact')} 
-                    className="w-full bg-gradient-to-r from-red-600 to-red-700 hover:from-red-700 hover:to-red-800 text-white px-6 py-2 rounded-lg font-semibold transition-all duration-300 hover:shadow-lg">
-                    Book Consultation
-                  </button>
-                 </div>
+                  Contact Us
+                </button>
+              </div>
+            </div>
+         )}
 @@ .. @@
 function App() {
   const [isLoading, setIsLoading] = useState(true);
@@ -106,35 +101,20 @@ function App() {
    }
   };
 @@ .. @@
-             {/* Call to Action Button */}
-             <div className="animate-in fade-in-50 slide-in-from-bottom-2 duration-1000 delay-800">
-               <button 
-                 onClick={() => scrollToSection('contact')}
-                className="bg-gradient-to-r from-red-600 to-red-700 hover:from-red-700 hover:to-red-800 text-white px-12 py-4 rounded-xl font-bold text-xl transition-all duration-500 hover:shadow-2xl hover:scale-110 transform inline-flex items-center group"
-               >
-                 Book Consultation
-                 <ChevronRight className="w-6 h-6 ml-3 group-hover:translate-x-2 transition-transform duration-300" />
-               </button>
-             </div>
+              <p className="text-lg sm:text-xl lg:text-2xl text-blue-100 max-w-4xl mx-auto leading-relaxed drop-shadow-lg animate-in fade-in-50 slide-in-from-bottom-2 duration-1000 delay-600 mb-12">
+                Connect with regulated partners for high-yield, fixed-term products. 
+                Professional guidance for all Australian investors.
+              </p>
+            </div>
+          </div>
+        </div>
 @@ .. @@
+            </div>
+
             <div className="mt-8 text-center animate-in fade-in-50 slide-in-from-bottom-4 duration-800 delay-1000">
-              <button
-                type="submit"
-                disabled={isSubmitting}
-                className="bg-gradient-to-r from-red-600 to-red-700 hover:from-red-700 hover:to-red-800 disabled:from-gray-400 disabled:to-gray-500 disabled:cursor-not-allowed text-white px-8 py-4 rounded-xl font-semibold text-lg transition-all duration-500 inline-flex items-center hover:shadow-2xl hover:scale-105 transform group disabled:hover:scale-100 disabled:hover:shadow-none"
-              >
-                {isSubmitting ? (
-                  <>
-                    <div className="w-5 h-5 border-2 border-white border-t-transparent rounded-full animate-spin mr-2"></div>
-                    Sending...
-                  </>
-                ) : (
-                  <>
-                    Talk to an Expert Now
-                    <ChevronRight className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform duration-300" />
-                  </>
-                )}
-              </button>
+              <p className="text-white text-lg">
+                Contact form will be added here
+              </p>
             </div>
 
             {/* Success/Error Message */}
