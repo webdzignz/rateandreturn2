@@ -3,9 +3,8 @@
   command = "npm run build"
 
 [[redirects]]
-  from = "/api/*"
-  to = "/.netlify/functions/:splat"
+  from = "/api/send-consultation-email"
+  to = "/.netlify/functions/send-consultation-email"
   status = 200
 
 [functions]
-  directory = "netlify/functions"
