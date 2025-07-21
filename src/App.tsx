@@ -1,20 +1,16 @@
 @@ .. @@
              {/* Desktop CTA Button */}
              <div className="hidden md:block">
-              <button
-                onClick={() => scrollToSection('contact')}
-                className="bg-gradient-to-r from-red-600 to-red-700 hover:from-red-700 hover:to-red-800 text-white px-6 py-2 rounded-lg font-semibold transition-all duration-300 hover:shadow-xl hover:scale-105 transform"
-              >
-                Book Consultation
+              <button 
+                onClick={() => scrollToSection('contact')} 
+                className="bg-gradient-to-r from-red-600 to-red-700 hover:from-red-700 hover:to-red-800 text-white px-6 py-2 rounded-lg font-semibold transition-all duration-300 hover:shadow-xl hover:scale-105 transform">
               </button>
              </div>
 @@ .. @@
                  <div className="pt-2">
-                  <button
-                    onClick={() => scrollToSection('contact')}
-                    className="w-full bg-gradient-to-r from-red-600 to-red-700 hover:from-red-700 hover:to-red-800 text-white px-6 py-2 rounded-lg font-semibold transition-all duration-300 hover:shadow-lg"
-                  >
-                    Book Consultation
+                  <button 
+                    onClick={() => scrollToSection('contact')} 
+                    className="w-full bg-gradient-to-r from-red-600 to-red-700 hover:from-red-700 hover:to-red-800 text-white px-6 py-2 rounded-lg font-semibold transition-all duration-300 hover:shadow-lg">
                   </button>
                  </div>
 @@ .. @@
@@ -130,10 +126,10 @@ function App() {
 
             {/* Success/Error Message */}
             {submitMessage && (
-              <div className={`mt-6 p-4 rounded-lg text-center animate-in fade-in-50 slide-in-from-bottom-2 duration-500 ${
+                  onClick={() => scrollToSection('contact')}
                 submitMessageType === 'success'
                   ? 'bg-green-100 text-green-800 border border-green-200' 
-                  : 'bg-red-100 text-red-800 border border-red-200'
+                  Book Consultation
               }`}>
                 <p className="font-medium">{submitMessage}</p>
               </div>
